@@ -2,8 +2,8 @@
 
 A phone-first, contemporary literary archive prototype. The archive content is encrypted in the browser using PBKDF2-HMAC-SHA256 and AES-256-GCM. The HTML stores ciphertext, not plaintext archive content.
 
-## Important before using real private content
-The current demo passphrase is `o728!`, which is short and weak. Do not use it for private writing. Replace it with a long, unique passphrase and re-encrypt your final content before sharing the site.
+## Passphrase
+The archive is locked with a passphrase that is not stored in this repository. A short passphrase is easier to guess offline, so use a longer one if the content is sensitive.
 
 ## GitHub Pages
 In the repository, open **Settings → Pages**, choose **Deploy from a branch**, select `main` and `/(root)`, then save. After publishing, the site URL should be `https://tttttttw.github.io/love-archive/`.
