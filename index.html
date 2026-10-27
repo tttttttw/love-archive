@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f3ec">
+<title>Our Archive — a small archive for a big love</title>
+<style>
+:root{--paper:#f6f3ec;--ink:#24231f;--muted:#77736b;--line:#d9d4c9;--accent:#9c5148;--serif:Georgia,"Noto Serif SC","Songti SC",serif;--sans:Arial,"PingFang SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}html{background:var(--paper);color:var(--ink)}body{margin:0;font-family:var(--serif);font-weight:400}button,input{font:inherit}button{cursor:pointer}
+.shell{max-width:1120px;margin:auto;padding:24px clamp(20px,5vw,72px) 50px;min-height:100vh;display:flex;flex-direction:column}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:8px 0 22px;border-bottom:1px solid var(--line);font-size:13px;letter-spacing:.04em}
+.brand{display:flex;align-items:center;gap:10px}.brand-mark{width:7px;height:7px;border-radius:50%;background:var(--accent)}.eyebrow{font:10px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+main{flex:1}.gate{max-width:510px;margin:clamp(90px,18vh,180px) auto 100px}.gate .eyebrow{margin-bottom:28px}.gate h1{font-size:clamp(36px,7vw,62px);font-weight:400;line-height:1.15;letter-spacing:-.04em;margin:0 0 22px}.gate p,.intro-copy{font-size:16px;line-height:2;color:#5e5a53}.gate p{max-width:330px}.unlock{display:flex;gap:8px;margin-top:32px}.unlock input{min-width:0;flex:1;border:1px solid #c9c3b8;background:transparent;padding:15px 14px;border-radius:2px;outline:none;font:13px var(--sans)}.unlock input:focus{border-color:var(--ink)}.unlock button,.primary{border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:0 18px;min-height:48px}.error{font:12px var(--sans);color:var(--accent);min-height:20px;margin-top:12px}.foot{margin-top:auto;padding-top:30px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}
+.intro{max-width:820px;margin:clamp(65px,11vh,125px) auto 80px;display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(35px,8vw,100px);align-items:center}.intro h1{font-size:clamp(38px,6vw,66px);font-weight:400;line-height:1.25;letter-spacing:-.04em;margin:18px 0 24px}.intro-copy{white-space:pre-line}.intro-note{border-left:1px solid var(--line);padding:20px 0 20px 24px;color:var(--muted);font-size:14px;line-height:2}.primary{margin-top:28px;min-height:44px;font:12px var(--sans);letter-spacing:.04em}
+.archive{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(35px,7vw,100px);padding-top:42px}.sidebar{position:sticky;top:20px;align-self:start}.sidebar .brand{margin-bottom:40px}.nav-label{font:10px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:15px}.nav{display:grid;gap:4px}.nav button{border:0;background:transparent;text-align:left;padding:12px 0;color:var(--muted);font-size:14px;display:flex;justify-content:space-between}.nav button.active,.nav button:hover{color:var(--ink)}.nav button.active:after{content:"↗";color:var(--accent)}.sidebar-note{margin-top:70px;font-size:12px;color:var(--muted);line-height:1.8}
+.content{min-width:0;max-width:700px}.page-head{border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:10px}.page-head h1{font-size:clamp(36px,5vw,54px);font-weight:400;letter-spacing:-.04em;margin:8px 0 8px}.page-head p{font-size:14px;color:var(--muted);line-height:1.8;margin:0}.poem-row{display:grid;grid-template-columns:55px 1fr 24px;gap:12px;padding:23px 0 26px;border-bottom:1px solid var(--line);align-items:start;cursor:pointer}.poem-row:hover .poem-title{color:var(--accent)}.num,.date{font:10px var(--sans);letter-spacing:.08em;color:var(--muted)}.poem-title{font-size:22px;font-weight:400;margin:0 0 12px;transition:color .2s}.poem-preview{white-space:pre-line;font-size:14px;line-height:1.95;color:#69655d}.arrow{color:var(--muted);font-size:15px}.detail-back{border:0;background:none;padding:0;color:var(--muted);font:12px var(--sans);margin:0 0 35px}.poem-detail{max-width:590px}.poem-detail h1{font-size:clamp(34px,5vw,52px);font-weight:400;margin:14px 0 30px}.poem-body{font-size:17px;line-height:2.2;white-space:pre-line;min-height:230px}.detail-bottom{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px;margin-top:55px;font:11px var(--sans);color:var(--muted)}
+.moments-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 18px;padding-top:20px}.moment-art{aspect-ratio:4/3;background:#e4ded2;position:relative;overflow:hidden}.moment-art:before,.moment-art:after{content:"";position:absolute;inset:0}.moment-art.sunset{background:linear-gradient(180deg,#d9d0bd 0%,#c6b7a0 48%,#7d8a8a 49%,#d4c0a2 100%)}.moment-art.sunset:after{inset:48% 0 0;background:repeating-linear-gradient(175deg,transparent 0 12px,#e3d0b3 13px 14px,transparent 15px 23px);opacity:.55}.moment-art.flowers{background:linear-gradient(135deg,#b8c0a7,#e2d9c7 60%,#8e9d82)}.moment-art.flowers:after{background:radial-gradient(ellipse at 30% 40%,#eee4d2 0 4%,transparent 5%),radial-gradient(ellipse at 65% 28%,#f3eee3 0 5%,transparent 6%),radial-gradient(ellipse at 75% 65%,#d9d2b8 0 5%,transparent 6%),linear-gradient(70deg,transparent 45%,#71816a 46% 47%,transparent 48%)}.moment-art.city{background:linear-gradient(180deg,#d9d7cd,#aab3b0 65%,#7f8985)}.moment-art.city:after{inset:30% 0 0;background:linear-gradient(90deg,transparent 0 8%,#777e79 8% 14%,transparent 14% 18%,#5c6865 18% 30%,transparent 30% 34%,#737b76 34% 43%,transparent 43% 48%,#555f5c 48% 62%,transparent 62% 66%,#7e8580 66% 80%,transparent 80%);clip-path:polygon(0 25%,10% 25%,10% 0,20% 0,20% 30%,35% 30%,35% 5%,48% 5%,48% 35%,62% 35%,62% 10%,72% 10%,72% 25%,100% 25%,100% 100%,0 100%)}.moment-art.coffee{background:linear-gradient(135deg,#d8d0c3,#a7a08f)}.moment-art.coffee:after{inset:20% 15%;border-radius:50%;background:radial-gradient(ellipse at center,#6d5140 0 28%,#eee4d4 30% 43%,#a7a08f 45% 48%,transparent 50%);transform:rotate(-12deg)}.moment-meta{padding-top:10px}.moment-meta h3{font-size:16px;font-weight:400;margin:7px 0}.moment-meta p{font-size:12px;color:var(--muted);margin:0}.text-card{padding:23px 0;border-bottom:1px solid var(--line)}.text-card h3{font-size:22px;font-weight:400;margin:0 0 12px}.text-card p{font-size:15px;line-height:2;color:#625e57;white-space:pre-line;margin:0}
+.hidden{display:none!important}.toast{font:12px var(--sans);color:var(--accent);margin-top:12px}
+@media(max-width:680px){.shell{padding:18px 22px 28px}.topbar{padding-bottom:18px}.gate{margin:clamp(85px,17vh,140px) 0 80px}.intro{grid-template-columns:1fr;gap:30px;margin:65px 0}.intro-note{max-width:360px}.archive{display:block;padding-top:25px}.sidebar{position:static;margin-bottom:35px}.sidebar .brand{margin-bottom:20px}.nav{display:flex;overflow:auto;gap:22px;border-bottom:1px solid var(--line)}.nav button{white-space:nowrap;padding:0 0 12px}.nav button.active:after{margin-left:8px}.sidebar-note{display:none}.page-head h1{font-size:40px}.poem-row{grid-template-columns:35px 1fr 18px;gap:8px;padding:21px 0}.poem-title{font-size:20px}.poem-preview{font-size:13px}.moments-grid{gap:23px 12px}.moment-meta h3{font-size:15px}.foot{font-size:11px}.poem-body{font-size:16px}}
+@media(prefers-reduced-motion:no-preference){.view{animation:rise .35s ease both}@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar"><div class="brand"><span class="brand-mark"></span><span>Our Archive</span></div><span class="eyebrow">A private collection</span></header>
+  <main>
+    <section id="gate" class="gate view">
+      <div class="eyebrow">For you, and only you</div>
+      <h1>有些故事，<br>只想和你分享。</h1>
+      <p>Some stories are only meant for you.</p>
+      <form id="unlockForm" class="unlock"><input id="passphrase" type="password" placeholder="Enter passphrase" autocomplete="current-password" aria-label="Passphrase"><button aria-label="Unlock" type="submit">→</button></form>
+      <div id="gateError" class="error" role="status"></div>
+      <div class="foot"><span>Our Archive — 01</span><span>Made for two.</span></div>
+    </section>
+
+    <section id="intro" class="intro view hidden">
+      <div><div class="eyebrow">A little place to return to</div><h1 id="introTitle">欢迎来到我们的故事里</h1><div id="introCopy" class="intro-copy"></div><button id="enterArchive" class="primary">进入我们的故事　↗</button></div>
+      <aside class="intro-note"><div class="eyebrow">A note</div><p id="introMore"></p><span>— Forever, always.</span></aside>
+    </section>
+
+    <section id="archive" class="archive hidden">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark"></span><span>Our Archive</span></div>
+        <div class="nav-label">Collected, over time</div>
+        <nav class="nav" id="nav">
+          <button data-page="memories" class="active">01　Memories</button>
+          <button data-page="moments">02　Moments</button>
+          <button data-page="fragments">03　Fragments</button>
+          <button data-page="letters">04　Letters</button>
+        </nav>
+        <div class="sidebar-note">一些片刻，<br>一些文字，<br>还有一直想告诉你的事。<br><br>♡　For you</div>
+      </aside>
+      <section id="content" class="content view"></section>
+    </section>
+  </main>
+  <footer id="globalFoot" class="foot"><span>A small archive for a big love. ♡</span><span>PRIVATE / ENCRYPTED</span></footer>
+</div>
+<script>
+/* The only content stored in this file is an AES-GCM ciphertext. */
+const ENCRYPTED = {"salt":"cNfuOLrYAoF2Mi+qu+xlkQ==","iv":"3g/Vs+6P8luljWEO","iterations":310000,"ciphertext":"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"};
+const $ = (id) => document.getElementById(id);
+let archiveData = null;
+let currentPage = "memories";
+
+function fromB64(s){return Uint8Array.from(atob(s), c => c.charCodeAt(0));}
+async function decryptArchive(passphrase){
+  const salt=fromB64(ENCRYPTED.salt), iv=fromB64(ENCRYPTED.iv), ciphertext=fromB64(ENCRYPTED.ciphertext);
+  const material=await crypto.subtle.importKey("raw",new TextEncoder().encode(passphrase),"PBKDF2",false,["deriveKey"]);
+  const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:ENCRYPTED.iterations,hash:"SHA-256"},material,{name:"AES-GCM",length:256},false,["decrypt"]);
+  const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv},key,ciphertext);
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+$("unlockForm").addEventListener("submit",async e=>{
+  e.preventDefault(); $("gateError").textContent="";
+  if(!window.crypto || !crypto.subtle){$("gateError").textContent="Please open this site over HTTPS in a modern browser.";return;}
+  const button=$("unlockForm").querySelector("button");button.textContent="…";button.disabled=true;
+  try{
+    archiveData=await decryptArchive($("passphrase").value);
+    $("gate").classList.add("hidden");$("globalFoot").classList.add("hidden");
+    $("introTitle").textContent=archiveData.introTitle;
+    $("introCopy").textContent=archiveData.intro.join("\n");
+    $("introMore").textContent=archiveData.introMore.join("\n");
+    $("intro").classList.remove("hidden");
+    $("passphrase").value="";
+  }catch(err){$("gateError").textContent="这句暗号好像不对。再试一次？";$("passphrase").select();}
+  finally{button.textContent="→";button.disabled=false;}
+});
+$("enterArchive").addEventListener("click",()=>{$("intro").classList.add("hidden");$("archive").classList.remove("hidden");$("globalFoot").classList.remove("hidden");renderPage("memories");});
+$("nav").addEventListener("click",e=>{const b=e.target.closest("button[data-page]");if(!b)return;renderPage(b.dataset.page);});
+function pageHead(title,sub,kicker){return `<header class="page-head"><div class="eyebrow">${kicker}</div><h1>${title}</h1><p>${sub}</p></header>`;}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function poemMarkup(poem,i){return `<article class="poem-row" tabindex="0" role="button" data-poem="${i}"><div><div class="num">${String(i+1).padStart(2,"0")}</div><div class="date" style="margin-top:10px">${esc(poem.date)}</div></div><div><h2 class="poem-title">${esc(poem.title)}</h2><div class="poem-preview">${esc(poem.lines.slice(0,3).join("\n"))}</div></div><div class="arrow">→</div></article>`;}
+function renderPage(page){
+  currentPage=page;document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+  const c=$("content");c.classList.remove("view");void c.offsetWidth;c.classList.add("view");
+  if(page==="memories"){
+    c.innerHTML=pageHead("Memories","那些，关于我们的诗。","01 / A collection of words")+archiveData.memories.map(poemMarkup).join("");
+    c.querySelectorAll("[data-poem]").forEach(el=>{const open=()=>renderPoem(Number(el.dataset.poem));el.addEventListener("click",open);el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open();}});});
+  }else if(page==="moments"){
+    c.innerHTML=pageHead("Moments","一些瞬间，一些日常。","02 / Little things")+`<div class="moments-grid">${archiveData.moments.map(m=>`<article><div class="moment-art ${esc(m.image)}" role="img" aria-label="Abstract placeholder artwork"></div><div class="moment-meta"><div class="date">${esc(m.date)}</div><h3>${esc(m.title)}</h3><p>${esc(m.kind)}</p></div></article>`).join("")}</div>`;
+  }else if(page==="fragments"){
+    c.innerHTML=pageHead("Fragments","没被写成诗的，也值得留下。","03 / Notes to keep")+archiveData.fragments.map(f=>`<article class="text-card"><h3>${esc(f.title)}</h3><p>${esc(f.text)}</p></article>`).join("");
+  }else{
+    c.innerHTML=pageHead("Letters","有些话，想慢慢说给你听。","04 / Longer notes")+archiveData.letters.map((l,i)=>`<article class="text-card"><div class="date">${esc(l.date)}</div><h3>${esc(l.title)}</h3><p>${esc(l.lines.join("\n"))}</p></article>`).join("");
+  }
+}
+function renderPoem(index){
+  const p=archiveData.memories[index], c=$("content");
+  c.innerHTML=`<div class="poem-detail"><button class="detail-back" id="backToList">←　All memories</button><div class="eyebrow">${esc(p.date)}　/　${String(index+1).padStart(2,"0")}</div><h1>${esc(p.title)}</h1><div class="poem-body">${esc(p.lines.join("\n"))}</div><div class="detail-bottom"><button class="detail-back" id="prevPoem">← Previous</button><span>Written for you</span><button class="detail-back" id="nextPoem">Next →</button></div></div>`;
+  $("backToList").onclick=()=>renderPage("memories");
+  $("prevPoem").onclick=()=>renderPoem((index-1+archiveData.memories.length)%archiveData.memories.length);
+  $("nextPoem").onclick=()=>renderPoem((index+1)%archiveData.memories.length);
+}
+</script>
+</body>
+</html>
